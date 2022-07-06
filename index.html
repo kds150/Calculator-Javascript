@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <h1>Calculatrice</h1><br><br>
+    <div class="center">
+        <button id="mode" class="dark-light">
+           <i class='bx bx-moon moon'></i>
+           <i class='bx bx-sun sun'></i>
+        </button>
+
+        <div class="display">
+          <div id="affiche">0</div>
+        </div>
+
+        <div class="bouttons">
+            <button id="calc9" value="9" onclick="getValue('9');">9</button>
+            <button id="calc8" value="8" onclick="getValue('8');">8</button>
+            <button id="calc7" value="7" onclick="getValue('7');">7</button>
+            <button id="calcDivision" value="/" onclick="getValue('/');">÷</button><br>
+
+          <button id="calc4" value="4" onclick="getValue('4');">4</button>
+          <button id="calc5" value="5" onclick="getValue('5');">5</button>
+          <button id="calc6" value="6" onclick="getValue('6');">6</button>
+          <button id="calcMulti" value="*" onclick="getValue('*');">*</button><br>
+
+          <button id="calc1" value="1" onclick="getValue(1);">1</button>
+          <button id="calc2" value="2" onclick="getValue('2');">2</button>
+          <button id="calc3" value="3" onclick="getValue('3');">3</button>
+          <button id="calcMoins" value="-" onclick="getValue('-');">-</button><br>
+
+          <button id="calcFloat" value=. onclick="getValue('.');">.</button>
+          <button id="calc0" value="0" onclick="getValue(0);">0</button>
+          <button id="calcAddition" value="+" onclick="getValue('+');">+</button>
+          <button id="calcDel" value="C" onclick="clearCalc();">C</button><br>
+          <button id="egal" onclick="resultat()">=</button>
+        </div>
+  </div>
+
+  <script>
+  // 1er partie fonctionnement de la calculatrice   
+     const operators = ['+','/','-','*']
+
+     let element = document.querySelector('#affiche');
+
+     function addition() {
+        
+     }
+
+     function zero() {    
+        if(element.innerHTML === "0") {
+           element.innerHTML = ""
+        }
+     }
+
+     // affiche les nombres
+     function getValue(myValue) {
+        zero();
+        element.innerHTML += myValue
+     }
+
+     // Evite le 0.1 + 0.2 = 0.03000000000004
+     function strip(number) {
+        return (parseFloat(number.toPrecision(8)));
+     }
+
+     function resultat() {
+        zero()
+        var equation = document.querySelector("#affiche").innerHTML;
+        var solved = eval(equation);
+        document.querySelector('#affiche').innerHTML = strip(solved);
+     }
+
+     function clearCalc() {
+        document.querySelector("#affiche").innerHTML = "0";
+     }
+
+
+
+     // 2 ième partie mode light-dark
+
+     let button = document.querySelector('#mode');
+
+     if(localStorage.getItem('theme')){
+     if(localStorage.getItem('theme') == 'light') {
+        modeLight();
+     }
+     }
+
+     button.addEventListener('click', () => {
+     if(document.body.classList.contains('light')) {
+        document.body.className = '';
+        localStorage.setItem('theme', 'dark');
+     }
+     else {
+        modeLight();
+     }
+     });
+
+     function modeLight() {
+     document.body.className = 'light';
+     localStorage.setItem('theme', 'light');
+     }
+
+  </script>
+    
+</body>
+</html>

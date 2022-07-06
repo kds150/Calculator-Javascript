@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  :root{
+    --black : #000;
+    --bg1 :  white;
+    --bg2 : white;
+    --hvc : linear-gradient(#e0dfdf, #f5e7e7);
+  }
+
+
+  body{
+    font-family: montserrat;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right top, #e66465, #9198e5);
+  }
+
+  h1{
+    font-weight: bold; 
+    font-size: 3rem; 
+    background: var(--black); 
+    color: var(--bg1);
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .center{
+    height: auto;
+    width: 350px;
+    background: var(--black);
+    border-radius: 20px;
+    
+  }
+  .display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #affiche{
+    height: 60px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 1px;
+    border: 1px solid #e1e7ea;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 15px;
+    text-align: right;
+    padding-right: 20px;
+    background: var(--bg1);
+    color: var(--black);
+  }
+
+  .bouttons{
+      width: 300px;
+      margin: 10px 25px 0 25px;
+      padding: 10px 0;
+  }
+  button{
+    width: 58px;
+    height: 55px;
+    margin: 5px;
+    font-size: 22px;
+    line-height: 55px;
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    background: var(--bg2);
+    color: var(--black);
+  }
+  button:active{
+    transition: .5s;
+    background: var(--hvc);
+  }
+  #calcDel{
+    background: #ff1a1a;
+    border: 1px solid #cc0000;
+    color: white;
+  }
+
+  #calcDel:hover{
+    background-color: #7c1919;
+  }
+  
+  #egal{
+    width: 275px;
+    margin: 10px 0 10px 0;
+    font-size: 30px;
+    color: white;
+    background: #ff3d00;
+    border: 1px solid #b32a00;
+  }
+
+  #egal:hover{
+    background-color: green;
+  }
+
+
+  /* 2 ième partie mode light-dark */
+
+  .dark-light {
+    margin-top: 20px;
+    background-color: var(--bg1);
+    color: var(--black);
+    border-radius: 50%;
+  }
+
+  .dark-light i{
+    font-size: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dark-light .moon{
+  display: none;
+}
+
+.light .sun {
+  display: none;
+}
+
+.light .moon {
+  display: block;
+}
+
+.light {
+    --black : white;
+    --bg1 :  #000;
+    --bg2 : #000;
+    --hvc : linear-gradient(rgb(37, 36, 36), rgb(94, 91, 97) );
+}
